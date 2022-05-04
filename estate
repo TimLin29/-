@@ -1,0 +1,103 @@
+pip install pandas
+import pandas
+import pandas as pd
+from sklearn.datasets import make_regression
+from sklearn import metrics
+import random
+import string
+from decimal import getcontext, Decimal
+import numpy as np
+import csv
+import os
+import glob
+
+my_dataframe=pandas.DataFrame
+
+df_a=pd.read_csv("a_lvr_land_a.csv",encoding='utf-8')
+df_b=pd.read_csv("b_lvr_land_a.csv",encoding='utf-8')
+df_e=pd.read_csv("e_lvr_land_a.csv",encoding='utf-8')
+df_f=pd.read_csv("f_lvr_land_a.csv",encoding='utf-8')
+df_h=pd.read_csv("f_lvr_land_a.csv",encoding='utf-8')
+
+df_all=df_a.append(df_b)
+df_all=df_all.append(df_e)
+df_all=df_all.append(df_f)
+df_all=df_all.append(df_h)
+df_all
+
+df_all.to_csv("al.csv", sep=',',encoding='utf-8_sig',na_rep='',float_format=None, columns=None, header=True, index=False)
+df=pd.read_csv("al.csv")
+
+filt=(df['主要用途']=='住家用')
+print(df.loc[filt])
+
+df_q=df.loc[filt]
+df_q.to_csv('house.csv', sep=',',encoding='utf-8_sig',na_rep='',float_format=None, columns=None, header=True, index=False)
+
+df=pd.read_csv("al.csv")
+
+filt=df['建物型態'].str.contains('住宅大樓',na=False)
+print(df.loc[filt])
+
+df_t=df.loc[filt]
+
+df_t.to_csv('residence.csv', sep=',',encoding='utf-8_sig',na_rep='',float_format=None, columns=None, header=True, index=False)
+
+df=pd.read_csv("al.csv")
+
+
+filt=(df['總樓層數']=='十三層')
+print(df.loc[filt])
+
+
+
+filt1=(df['總樓層數']=='十四層')
+print(df.loc[filt1])
+filt2=(df['總樓層數']=='十五層')
+print(df.loc[filt2])
+filt3=(df['總樓層數']=='十六層')
+print(df.loc[filt3])
+filt4=(df['總樓層數']=='十七層')
+print(df.loc[filt4])
+filt5=(df['總樓層數']=='十八層')
+print(df.loc[filt5])
+filt6=(df['總樓層數']=='十九層')
+print(df.loc[filt6])
+filt7=(df['總樓層數']=='二十層')
+print(df.loc[filt7])
+filt8=(df['總樓層數']=='二十一層')
+print(df.loc[filt8])
+filt9=(df['總樓層數']=='二十二層')
+print(df.loc[filt9])
+filt10=(df['總樓層數']=='二十三層')
+print(df.loc[filt10])
+filt11=(df['總樓層數']=='二十四層')
+print(df.loc[filt11])
+filt12=(df['總樓層數']=='二十五層')
+print(df.loc[filt2])
+filt13=(df['總樓層數']=='二十六層')
+print(df.loc[filt13])
+filt14=(df['總樓層數']=='二十七層')
+print(df.loc[filt14])
+filt15=(df['總樓層數']=='二十八層')
+print(df.loc[filt15])
+
+df_p=df.loc[filt].append(df.loc[filt1])
+df_p=df_p.append(df.loc[filt2])
+df_p=df_p.append(df.loc[filt3])
+df_p=df_p.append(df.loc[filt4])
+df_p=df_p.append(df.loc[filt5])
+df_p=df_p.append(df.loc[filt6])
+df_p=df_p.append(df.loc[filt7])
+df_p=df_p.append(df.loc[filt8])
+df_p=df_p.append(df.loc[filt9])
+df_p=df_p.append(df.loc[filt10])
+df_p=df_p.append(df.loc[filt11])
+df_p=df_p.append(df.loc[filt12])
+df_p=df_p.append(df.loc[filt13])
+df_p=df_p.append(df.loc[filt14])
+df_p=df_p.append(df.loc[filt15])
+print(df_p)
+
+
+df_p.to_csv('high.csv', sep=',',encoding='utf-8_sig',na_rep='',float_format=None, columns=None, header=True, index=False)
